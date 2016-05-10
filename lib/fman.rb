@@ -1,5 +1,7 @@
 require "fman/version"
 
 module Fman
-  # Your code goes here...
+  def self.ship(package = StringIO.new(""))
+    package.each { |line| puts line }
+  end
 end
