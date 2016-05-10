@@ -9,5 +9,9 @@ describe Fman do
       expect { Fman.ship(string_io) }.to output("some text\n more\n").to_stdout
     end
 
+    it "prints a String instance to stdout" do
+      string = "some string\n more"
+      expect { Fman.ship(string) }.to output(string << "\n").to_stdout
+    end
   end
 end
