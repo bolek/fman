@@ -7,8 +7,10 @@ module Fman
         @string = string
       end
 
-      def ship
-        puts string
+      def ship_to(destination)
+        destination.receive do |p|
+          p.call(string)
+        end
         self
       end
     end

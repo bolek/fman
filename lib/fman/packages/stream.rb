@@ -7,8 +7,10 @@ module Fman
         @stream = stream
       end
 
-      def ship
-        stream.each { |line| puts line }
+      def ship_to(destination)
+        destination.receive do |p|
+          stream.each { |line| p.call(line) }
+        end
         stream.rewind
         self
       end
